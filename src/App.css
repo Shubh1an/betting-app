@@ -1,0 +1,30 @@
+/* input{
+  outline: none;
+}
+input:required:focus-visible {
+  border-color: red !important;
+}
+
+input:required:invalid {
+  border-color: red;
+}
+
+select{
+  outline: none;
+}
+select:required:focus-visible {
+  border-color: red !important;
+} */
+.divider {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.divider::before, .divider::after {
+  flex: 1;
+  content: '';
+  padding: 1px;
+  background-color: rgb(39, 37, 37);
+  margin: 10px;
+}

@@ -1,0 +1,42 @@
+.custom-btn {
+    height: 32px;
+    color: #fff;
+    border-radius: 5px;
+    background: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    /* box-shadow:
+        inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1); */
+    outline: 1px solid;
+    font-size: 0.75rem;
+}
+/* 2 */
+.btn-2 {
+    background: #E88246;
+    /* background: linear-gradient(0deg, #E88246 0%, rgb(219 234 254) 100%); */
+    border: none;
+    /* color: black; */
+}
+
+.btn-2:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn-2:hover {
+    box-shadow:
+        1px 0px 0px 0 rgba(255, 255, 255, 0.1),
+        0px 1px 0px 0 rgb(212 228 247 / 50%),
+        -1px 1px 0px 0 rgba(255, 255, 255, 0.1),
+        inset -1px 2px 0px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-2:disabled:hover {
+    /* box-shadow: none; */
+    box-shadow:
+    inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
