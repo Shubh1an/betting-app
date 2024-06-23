@@ -11,7 +11,7 @@ type Props = {
     isOutletExist:boolean,
     nestedRoutes:Props[],
 }
-
+// dddd
 const RestrictedRoute = ({component:Component,nestedRoutes,isAuth}: Props) => {
   return (
     <>
