@@ -4,10 +4,17 @@ import routes from './routes/pages'
 import Login from './routes/pages/public/login/Login'
 import SignUp from './routes/pages/public/signup/SignUp'
 import { ProtectedRoute } from './routes/pages/private/protected/ProtectedRoute'
-import PrivateLayout from './routes/layouts/privateLayout'
+
+import { useEffect } from 'react'
 function App() {
   const isAuth = false
+  useEffect(()=>{
+    const userData:any= localStorage.getItem("userData")
+    if(Object.keys(userData).length){
+    //set user Logic
 
+    }
+  },[])
   return (
     <div className='md:hidden'>
       <Routes>

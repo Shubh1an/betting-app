@@ -1,17 +1,47 @@
+
 import React from 'react'
+import { Navigate } from 'react-router-dom'
+import { ClientRoutesConstants } from '../../shared/constants'
 
 type Props = {
-    component= React.REAC,
-    checkedroles,
-    userrole,
-    path,
-    children,
-    nestedRoutes,
+    component: typeof React.Component,
+    isAuth:boolean,
+    path:string,
+    children:Props[],
+    isOutletExist:boolean,
+    nestedRoutes:Props[],
 }
 
-const RestrictedRoute = (props: Props) => {
+const RestrictedRoute = ({component:Component,nestedRoutes,isAuth}: Props) => {
   return (
-    <div>RestrictedRoute</div>
+    <>
+      {nestedRoutes ? (
+        nestedRoutes.map(
+          (ele, i:number) =>
+            !ele.isOutletExist && (
+              <RestrictedRoute
+                key={i+ele?.path}
+                isAuth={isAuth}
+                path={ele?.path}
+                component={ele?.component}
+                children={ele?.children}
+                isOutletExist={ele?.isOutletExist}
+                nestedRoutes={
+                   ele?.children
+                }
+              />
+            )
+        )
+      ) : (
+        
+           isAuth? (
+            //   <Component auth={} />
+              <Component />
+            
+            ):<Navigate to={ClientRoutesConstants.login} />
+          
+       )} 
+    </>
   )
 }
 
