@@ -1,15 +1,21 @@
-import './App.css'
+import 'react-notifications-component/dist/theme.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import routes from './routes/pages'
+import './App.css'
+import { ProtectedRoute } from './routes/pages/private/protected/ProtectedRoute'
 import Login from './routes/pages/public/login/Login'
 import SignUp from './routes/pages/public/signup/SignUp'
-import { ProtectedRoute } from './routes/pages/private/protected/ProtectedRoute'
-import PrivateLayout from './routes/layouts/privateLayout'
+import { ReactNotifications } from 'react-notifications-component'
+import Loader from './customComponents/loader/Loader'
+import { useSelector } from 'react-redux'
 function App() {
+  const { isLoading } = useSelector((state: any) => state.common)
   const isAuth = false
 
   return (
     <div className='md:hidden'>
+      <ReactNotifications />
+      {isLoading && <Loader />}
+
       <Routes>
         {!isAuth && (
           <>
@@ -30,7 +36,7 @@ function App() {
         )}
         {isAuth && (
           <Route element={<ProtectedRoute />}>
-           
+
             <Route path="/" element={<Navigate to="/Profile" />} />
           </Route>
           // <Route path="" element={<PrivateLayout />}>
