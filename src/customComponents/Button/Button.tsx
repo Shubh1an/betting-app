@@ -24,7 +24,7 @@ const Button = (props: Props) => {
     }
     return (
         <div className={"flex " + mainClass}>
-            <button className={`custom-btn btn-2 normal-case px-4 disabled:opacity-50 disabled:text-[#494949] disabled:cursor-not-allowed ${className}`} type={type} onClick={onClick} style={{ ...btnStyle }} disabled={disable}>
+            <button className={`custom-btn btn-2 normal-case px-4 disabled:bg-[#585858] disabled:opacity-50 disabled:cursor-not-allowed ${className}`} type={type} onClick={onClick} style={{ ...btnStyle }} disabled={disable}>
                 {leftIcon && <div className={`${leftIconClass}`}>{leftIcon}</div>}
                 {title}
                 {rightIcon && <div className={`${rightIconClass}`}>{rightIcon}</div>}
