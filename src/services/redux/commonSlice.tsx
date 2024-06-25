@@ -1,17 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const commonSlice = createSlice({
-    name: 'common',
-    initialState: {
-        isLoade: false,
+  name: "common",
+  initialState: {
+    isLoading: false,
+    auth: {
+      isAuth: false,
+      userDetails: {},
     },
-    reducers: {
-        setIsLoader: (state, { payload }) => {
-            state.isLoade = payload
-        },
-    }
-})
+  },
+  reducers: {
+    setIsLoader: (state, { payload }) => {
+      state.isLoading = payload;
+    },
+    setUserDetails: (state, { payload }) => {
+      state.auth.userDetails = payload.userDetails;
+      state.auth.isAuth = payload.isAuth;
+    },
+  },
+});
 
-export const { setIsLoader } = commonSlice.actions
+export const { setIsLoader, setUserDetails } = commonSlice.actions;
 
-export default commonSlice.reducer
+export default commonSlice.reducer;
