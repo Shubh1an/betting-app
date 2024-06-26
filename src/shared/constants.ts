@@ -4,7 +4,7 @@ export const ClientRoutesConstants = {
     unauthorized: "/unauthorized",
     dashboard: "/dashboard",
     login: "/",
-    signUp: "/sign-up",
+    signUp: "/signup",
     newpage: "/new-page",
     tickets: "/tickets/*",
     createTicket: "create-ticket",

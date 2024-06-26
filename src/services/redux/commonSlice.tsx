@@ -8,6 +8,7 @@ export const commonSlice = createSlice({
       isAuth: false,
       userDetails: {},
     },
+    signUpData: {},
   },
   reducers: {
     setIsLoader: (state, { payload }) => {
@@ -17,9 +18,12 @@ export const commonSlice = createSlice({
       state.auth.userDetails = payload.userDetails;
       state.auth.isAuth = payload.isAuth;
     },
+    setSignUpData: (state, { payload }) => {
+      state.signUpData = payload;
+    },
   },
 });
 
-export const { setIsLoader, setUserDetails } = commonSlice.actions;
+export const { setIsLoader, setUserDetails,setSignUpData } = commonSlice.actions;
 
 export default commonSlice.reducer;
