@@ -14,7 +14,7 @@ const PublicRoute: React.FC<PublicRouteProps> = ({
 }) => {
   const { auth } = useSelector((state: RootState) => state.common);
   const { isAuth } = auth;
-  console.log("component=>>>", isAuth);
+
   return (
     <>
       {!isAuth ? (

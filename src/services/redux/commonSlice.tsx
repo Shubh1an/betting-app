@@ -15,6 +15,7 @@ export const commonSlice = createSlice({
       state.isLoading = payload;
     },
     setUserDetails: (state, { payload }) => {
+      console.log({ payload });
       state.auth.userDetails = payload.userDetails;
       state.auth.isAuth = payload.isAuth;
     },
@@ -24,6 +25,7 @@ export const commonSlice = createSlice({
   },
 });
 
-export const { setIsLoader, setUserDetails,setSignUpData } = commonSlice.actions;
+export const { setIsLoader, setUserDetails, setSignUpData } =
+  commonSlice.actions;
 
 export default commonSlice.reducer;

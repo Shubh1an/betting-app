@@ -13,6 +13,7 @@ import {
   setUserDetails,
 } from "../../../../services/redux/commonSlice";
 import { useAppDispatch } from "../../../../hooks/hooks";
+import { ClientRoutesConstants } from "../../../../shared/constants";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,11 +37,11 @@ const Login = () => {
         Notification({
           title: "Login successfull!!",
         });
-        localStorage.setItem("userData", JSON.stringify(data));
+        localStorage.setItem("userData", JSON.stringify(data?.data));
 
         // dispatch(setUserData(data));
-        dispatch(setUserDetails({ userDetails: data, isAuth: true }));
-        navigate("/dashborad");
+        dispatch(setUserDetails({ userDetails: data?.data, isAuth: true }));
+        navigate(ClientRoutesConstants?.dashboard);
       } else {
         dispatch(setIsLoader(false));
         Notification({

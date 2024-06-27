@@ -3,40 +3,19 @@ import { Navigate } from "react-router-dom";
 import { ClientRoutesConstants } from "../../shared/constants";
 
 type Props = {
-  component: () => JSX.Element;
+  component: React.ComponentType<any>;
   isAuth: boolean;
-  path: string;
-  children: Props[];
-  isOutletExist: boolean;
-  nestedRoutes: Props[];
 };
 // dddd
 const RestrictedRoute = ({
   component: Component,
-  nestedRoutes,
+
   isAuth,
-  path,
-  children,
-  isOutletExist,
 }: Props) => {
+  console.log({ Component });
   return (
     <>
-      {nestedRoutes ? (
-        nestedRoutes.map(
-          (ele, i: number) =>
-            !ele.isOutletExist && (
-              <RestrictedRoute
-                key={i + ele?.path}
-                isAuth={isAuth}
-                path={ele?.path}
-                component={ele?.component}
-                children={ele?.children}
-                isOutletExist={ele?.isOutletExist}
-                nestedRoutes={ele?.children}
-              />
-            )
-        )
-      ) : isAuth ? (
+      {isAuth ? (
         //   <Component auth={} />
         <Component />
       ) : (

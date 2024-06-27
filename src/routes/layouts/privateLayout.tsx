@@ -1,12 +1,13 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
-type Props = {}
+type Props = {};
 
 const PrivateLayout = (props: Props) => {
   return (
-    <div><Outlet/></div>
-  )
-}
+    <div>
+      <Outlet />
+    </div>
+  );
+};
 
-export default PrivateLayout
+export default PrivateLayout;
