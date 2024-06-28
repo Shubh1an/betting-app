@@ -10,13 +10,13 @@ import {
   setIsLoader,
   setSignUpData
 } from "../../../../services/redux/commonSlice";
+import { sendOtpApi } from "../../../../services/api service/CommonService";
 
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [formValue, setformValue] = useState({ firstName: "", lastName: "", mobileNo: "", refrenceCode: "", password: "" });
-  const [error, setError] = useState({ firstName: "", lastName: "", mobileNo: "", refrenceCode: "", password: "" })
-  console.log({ error });
+  const [error, setError] = useState({ firstName: "", lastName: "", mobileNo: "", refrenceCode: "", password: "" });
 
   const isValidate = () => {
     return (
@@ -29,10 +29,16 @@ const Signup = () => {
   const onSubmit = async () => {
     dispatch(setIsLoader(true));
     dispatch(setSignUpData(formValue))
+    navigate('/otp');
     try {
-      navigate('/otp')
+      const data = await sendOtpApi(formValue?.mobileNo);
+      console.log(data);
+      if (data) {
+        navigate('/otp');
+      }
       dispatch(setIsLoader(false));
     } catch (err) {
+      dispatch(setIsLoader(false));
       console.log(err);
     }
   };
@@ -82,13 +88,13 @@ const Signup = () => {
           onChange={handleChange}
         />
         <InputText
-          labelTitle="Constact"
+          labelTitle="Contact"
           Id="mobileNo"
           required
-          placeholder="Constact"
+          placeholder="Contact"
           onChange={handleChange}
         />
-        <label >{error?.mobileNo}</label>
+        <label className="text-xs text-red-500">{error?.mobileNo}</label>
         <InputText
           labelTitle="Password"
           Id="password"
@@ -96,7 +102,7 @@ const Signup = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        <label >{error?.password}</label>
+        <label className="text-xs text-red-500">{error?.password}</label>
         <InputText
           labelTitle="Referral Code"
           Id="refrenceCode"

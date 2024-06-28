@@ -17,6 +17,7 @@ import { ClientRoutesConstants } from "./shared/constants";
 import PrivateLayout from "./routes/layouts/privateLayout";
 import PublicRoute from "./routes/layouts/publicLayout";
 import Dashboard from "./routes/pages/private/dashboard";
+import OTPscreen from "./routes/pages/public/otp/OTPscreen";
 function App() {
   const { isLoading, auth } =
     useSelector((state: RootState) => state?.common) || {};
@@ -56,6 +57,14 @@ function App() {
     {
       path: ClientRoutesConstants?.signUp,
       component: SignUp,
+      exact: false,
+      isOutletExist: false,
+      restricted: true,
+      children: [],
+    },
+    {
+      path: ClientRoutesConstants?.otp,
+      component: OTPscreen,
       exact: false,
       isOutletExist: false,
       restricted: true,
