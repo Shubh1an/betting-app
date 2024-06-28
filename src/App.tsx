@@ -16,7 +16,7 @@ import RestrictedRoute from "./routes/layouts/restrictedRoute";
 import { ClientRoutesConstants } from "./shared/constants";
 import PrivateLayout from "./routes/layouts/privateLayout";
 import PublicRoute from "./routes/layouts/publicLayout";
-import Dashboard from "./routes/pages/private/dashboard";
+import Dashboard from "./routes/pages/private/dashboard/dashboard";
 function App() {
   const { isLoading, auth } =
     useSelector((state: RootState) => state?.common) || {};
