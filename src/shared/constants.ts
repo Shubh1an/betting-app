@@ -4,6 +4,7 @@ export const ClientRoutesConstants = {
   dashboard: "/dashboard",
   login: "/login",
   signUp: "/signup",
+  otp: "/otp",
   newpage: "/new-page",
   tickets: "/tickets/*",
   createTicket: "create-ticket",

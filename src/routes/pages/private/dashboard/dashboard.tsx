@@ -7,9 +7,9 @@ import Header from "./components/Header";
 import { Carousel } from "react-responsive-carousel";
 import Dsb_Card from "./components/Dsb_Card";
 
-type Props = {
-  isAuth: boolean;
-};
+// type Props = {
+//   isAuth: boolean;
+// };
 const BannerData = [
   {
     url: Top1,
@@ -18,7 +18,8 @@ const BannerData = [
     url: Top2,
   },
 ];
-const Dashboard = ({ isAuth }: Props) => {
+const Dashboard = () => {
+// const Dashboard = ({ isAuth }: Props) => {
   const navigate = useNavigate();
   return (
     <div className="w-[95%] mx-auto">

@@ -10,11 +10,13 @@ import {
   setIsLoader,
   setSignUpData
 } from "../../../../services/redux/commonSlice";
+import { sendOtpApi } from "../../../../services/api service/CommonService";
 
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [formValue, setformValue] = useState({ firstName: "", lastName: "", mobileNo: "", refrenceCode: "", password: "" });
+  const [error, setError] = useState({ firstName: "", lastName: "", mobileNo: "", refrenceCode: "", password: "" });
 
   const isValidate = () => {
     return (
@@ -27,16 +29,41 @@ const Signup = () => {
   const onSubmit = async () => {
     dispatch(setIsLoader(true));
     dispatch(setSignUpData(formValue))
+    navigate('/otp');
     try {
-      navigate('/otp')
+      const data = await sendOtpApi(formValue?.mobileNo);
+      console.log(data);
+      if (data) {
+        navigate('/otp');
+      }
       dispatch(setIsLoader(false));
     } catch (err) {
+      dispatch(setIsLoader(false));
       console.log(err);
     }
   };
 
   const handleChange = (event: any) => {
     const { id: key, value } = event.target
+    if (key === 'mobileNo') {
+      if (!value) {
+        setError({ ...error, [key]: 'Should not be empty' });
+      } else
+        if (!regexCollection.Mobile.test(value)) {
+          setError({ ...error, [key]: 'Should have 10 digits number without separation' });
+        } else {
+          setError({ ...error, [key]: '' });
+        }
+    }
+    if (key === 'password') {
+      if (!value) {
+        setError({ ...error, [key]: 'Should not be empty' });
+      } else if (!regexCollection.Password.test(value)) {
+        setError({ ...error, [key]: 'Password should be a minimum of 8 characters long, contain both uppercase and lowercase characters, atleast one digit, and one special character' });
+      } else {
+        setError({ ...error, [key]: '' });
+      }
+    }
     setformValue({ ...formValue, [key]: value })
   }
   return (
@@ -61,23 +88,24 @@ const Signup = () => {
           onChange={handleChange}
         />
         <InputText
-          labelTitle="Constact"
+          labelTitle="Contact"
           Id="mobileNo"
           required
-          placeholder="Constact"
+          placeholder="Contact"
           onChange={handleChange}
         />
+        <label className="text-xs text-red-500">{error?.mobileNo}</label>
         <InputText
           labelTitle="Password"
-          Id="refrenceCode"
+          Id="password"
           required
           placeholder="Password"
           onChange={handleChange}
         />
+        <label className="text-xs text-red-500">{error?.password}</label>
         <InputText
           labelTitle="Referral Code"
-          Id="password"
-
+          Id="refrenceCode"
           placeholder="Referral Code"
           onChange={handleChange}
         />
