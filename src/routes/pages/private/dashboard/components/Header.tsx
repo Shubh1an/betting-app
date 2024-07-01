@@ -17,7 +17,7 @@ const Header = ({ title }: Props) => {
         className="flex"
         style={{ flexDirection: "row", alignItems: "center" }}
       >
-        <div
+        <div className="cursor-pointer"
         // onClick={() => {
         //   navigation.dispatch(DrawerActions.toggleDrawer());
         // }}

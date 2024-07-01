@@ -6,6 +6,7 @@ import luckyHitImg from "../../../../assets/images/lucky_hit_enter.png";
 import Header from "./components/Header";
 import { Carousel } from "react-responsive-carousel";
 import Dsb_Card from "./components/Dsb_Card";
+import Sidebar from "../../../layouts/Sidebar";
 
 // type Props = {
 //   isAuth: boolean;
@@ -24,6 +25,7 @@ const Dashboard = () => {
   return (
     <div className="w-[95%] mx-auto">
       <Header title="Home" />
+      <Sidebar/>
       <div className="mt-2 px-2">
         <Carousel
           autoPlay
