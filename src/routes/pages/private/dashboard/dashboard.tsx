@@ -39,25 +39,21 @@ const Dashboard = ({ isAuth }: Props) => {
         </Carousel>
         <div className="w-[90%] mx-auto mt-2">
           <p className="font-bold text-base">Games</p>
-          <div className="flex items-center justify-evenly">
+          <div className="grid grid-cols-2 items-center justify-evenly gap-2 mt-2">
             <Dsb_Card
               title="Color Game"
               image={winGoImg}
-              bgColor={COLORS.Orange}
-              onPress={() => {
-                navigation.navigate("ColorGame");
-              }}
+              bgColor={"#E88246"}
+              onClick={() => {}}
             />
             <Dsb_Card
               title="Card Game"
               image={luckyHitImg}
-              bgColor={COLORS.Green}
-              onPress={() => {
-                navigation.navigate("LuckyHit");
-              }}
+              bgColor={"#34A853"}
+              onClick={() => {}}
             />
           </div>
-        </View>
+        </div>
       </div>
     </div>
   );

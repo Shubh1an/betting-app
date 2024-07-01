@@ -7,14 +7,15 @@ type Props = {
   bgColor: string;
 };
 
-const Dsb_Card = ({ onClick, image, title }: Props) => {
+const Dsb_Card = ({ onClick, image, title, bgColor }: Props) => {
   return (
     <button
-      className="w-full h-32"
-      style={{ background: `#ffffff url(${image}) no-repeat center center` }}
+      className="w-full h-32 rounded-xl"
+      style={{ background: `${bgColor}  no-repeat center center` }}
       onClick={onClick}
     >
-      <img className="w-full h-full object-cover">{title}</img>
+      <img src={image} className="w-full h-full object-cover rounded-xl" />
+      {title}
     </button>
   );
 };
