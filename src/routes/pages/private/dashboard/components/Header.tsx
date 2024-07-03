@@ -7,9 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 type Props = {
   title: string;
+  clickFunction: Function;
 };
 
-const Header = ({ title }: Props) => {
+const Header = ({ title, clickFunction }: Props) => {
   const navigate = useNavigate();
   return (
     <div className="flex justify-between items-center p-2">
@@ -17,7 +18,7 @@ const Header = ({ title }: Props) => {
         className="flex"
         style={{ flexDirection: "row", alignItems: "center" }}
       >
-        <div className="cursor-pointer"
+        <div className="cursor-pointer" onClick={() => clickFunction()}
         // onClick={() => {
         //   navigation.dispatch(DrawerActions.toggleDrawer());
         // }}

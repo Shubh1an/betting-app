@@ -28,3 +28,46 @@ select:required:focus-visible {
   background-color: rgb(39, 37, 37);
   margin: 10px;
 }
+
+/* SIDEBAR CSS */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #f0f0f0;
+  -webkit-transition: transform 0.1s ease-in-out; /* Vendor prefix */
+  -moz-transition: transform 0.1s ease-in-out; /* Vendor prefix */
+  transition: transform 0.1s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Animate to open position */
+  backdrop-filter: blur(5px);
+}
+
+
+
+.image-container {
+  position: relative; /* Allow absolute positioning of child elements */
+}
+
+.image-container img {
+  width: 100%; /* Adjust width and height as needed */
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; /* Place at the top */
+  left: 0; /* Place at the left */
+  width: 100%; /* Cover the entire container */
+  height: 100%; /* Cover the entire container */
+  /* opacity: 0.5; */
+}
+
+.base-image {
+  border-radius: 50%; /* Make the base image circular */
+}

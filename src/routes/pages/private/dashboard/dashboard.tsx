@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import { Carousel } from "react-responsive-carousel";
 import Dsb_Card from "./components/Dsb_Card";
 import Sidebar from "../../../layouts/Sidebar";
+import { useState } from "react";
 
 // type Props = {
 //   isAuth: boolean;
@@ -20,12 +21,21 @@ const BannerData = [
   },
 ];
 const Dashboard = () => {
-// const Dashboard = ({ isAuth }: Props) => {
+  // const Dashboard = ({ isAuth }: Props) => {
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen); // Toggle state on button click
+  };
+  console.log({ isOpen });
+
   return (
     <div className="w-[95%] mx-auto">
-      <Header title="Home" />
-      <Sidebar/>
+      <Header title="Home" clickFunction={toggleSidebar} />
+      <Sidebar isOpen={isOpen} clickFunction={(e: any) => {
+        console.log(e);
+        setIsOpen(e)
+      }} />
       <div className="mt-2 px-2">
         <Carousel
           autoPlay
@@ -47,13 +57,13 @@ const Dashboard = () => {
               title="Color Game"
               image={winGoImg}
               bgColor={"#E88246"}
-              onClick={() => {}}
+              onClick={() => { }}
             />
             <Dsb_Card
               title="Card Game"
               image={luckyHitImg}
               bgColor={"#34A853"}
-              onClick={() => {}}
+              onClick={() => { }}
             />
           </div>
         </div>
