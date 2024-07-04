@@ -51,23 +51,21 @@ select:required:focus-visible {
 
 
 .image-container {
-  position: relative; /* Allow absolute positioning of child elements */
+  position: relative; 
 }
 
 .image-container img {
-  width: 100%; /* Adjust width and height as needed */
-  height: auto;
-}
+ } 
 
 .overlay {
   position: absolute;
-  top: 0; /* Place at the top */
-  left: 0; /* Place at the left */
-  width: 100%; /* Cover the entire container */
-  height: 100%; /* Cover the entire container */
-  /* opacity: 0.5; */
+  top: 0;
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
 }
 
 .base-image {
-  border-radius: 50%; /* Make the base image circular */
+  border-radius: 50%; 
 }
+
