@@ -57,7 +57,7 @@ const Dashboard = () => {
               title="Color Game"
               image={winGoImg}
               bgColor={"#E88246"}
-              onClick={() => { }}
+              onClick={() => {navigate('/color-game') }}
             />
             <Dsb_Card
               title="Card Game"

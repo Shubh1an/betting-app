@@ -1,7 +1,6 @@
 import "react-notifications-component/dist/theme.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { ProtectedRoute } from "./routes/pages/private/protected/ProtectedRoute";
 import Login from "./routes/pages/public/login/Login";
 import SignUp from "./routes/pages/public/signup/SignUp";
 
@@ -9,16 +8,17 @@ import { useEffect } from "react";
 import { ReactNotifications } from "react-notifications-component";
 import { useSelector } from "react-redux";
 import Loader from "./customComponents/loader/Loader";
-import { RootState } from "./services/redux/store";
-import { setUserDetails } from "./services/redux/commonSlice";
 import { useAppDispatch } from "./hooks/hooks";
-import RestrictedRoute from "./routes/layouts/restrictedRoute";
-import { ClientRoutesConstants } from "./shared/constants";
 import PrivateLayout from "./routes/layouts/privateLayout";
 import PublicRoute from "./routes/layouts/publicLayout";
+import RestrictedRoute from "./routes/layouts/restrictedRoute";
 import Dashboard from "./routes/pages/private/dashboard/dashboard";
+import { setUserDetails } from "./services/redux/commonSlice";
+import { RootState } from "./services/redux/store";
+import { ClientRoutesConstants } from "./shared/constants";
 // import Dashboard from "./routes/pages/private/dashboard";
 import OTPscreen from "./routes/pages/public/otp/OTPscreen";
+import { ColorGame } from "./routes/pages/private/color game/ColorGame";
 function App() {
   const { isLoading, auth } =
     useSelector((state: RootState) => state?.common) || {};
@@ -69,6 +69,14 @@ function App() {
       exact: false,
       isOutletExist: false,
       restricted: true,
+      children: [],
+    },
+    {
+      path: ClientRoutesConstants?.colorGame,
+      component: ColorGame,
+      exact: false,
+      isOutletExist: false,
+      restricted: false,
       children: [],
     },
 

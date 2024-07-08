@@ -27,4 +27,22 @@ export const ClientRoutesConstants = {
   privacyPolicy: "/privacy-policy",
   termAndCondition: "/term&Condtions",
   contactUs: "/contact-us",
+  colorGame: "/color-game",
+};
+export const COLORS = {
+  White: '#FFFFFF',
+  Black: '#000000',
+  Red: '#FF0000',
+  RedLight:'#FFEEEE',
+  Grey: '#A5A5A5',
+  LightGrey: '#EFEFEF',
+  DarkGrey: '#585858',
+  Orange: '#E88246',
+  OrangeLight: '#FFE9D9',
+  Pink: '#F5115E',
+  Purple: '#7F00FF',
+  Blue: '#2196F3',
+  BlueLight: '#D9EDFF',
+  Green: '#34A853',
+  GreenLight: '#E1F5EA',
 };
